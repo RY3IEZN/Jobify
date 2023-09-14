@@ -58,6 +58,7 @@ const Welcome = () => {
       <View style={styles.tabsContainer}>
         <FlatList
           horizontal
+          showsHorizontalScrollIndicator={false}
           data={jobTypes}
           keyExtractor={(item) => item}
           contentContainerStyle={{ columnGap: SIZES.small }}

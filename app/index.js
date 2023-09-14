@@ -11,6 +11,11 @@ import Welcome from "../components/home/welcome/Welcome";
 import Popularjobs from "../components/home/popular/Popularjobs";
 import Nearbyjobs from "../components/home/nearby/Nearbyjobs";
 import ScreenHeaderBtn from "../components/common/header/ScreenHeaderBtn";
+import { LogBox } from "react-native";
+import { YellowBox } from "react-native";
+
+LogBox.ignoreAllLogs(true);
+YellowBox.ignoreWarnings(["ERROR"]);
 
 function Home(props) {
   const router = useRouter();
@@ -28,7 +33,7 @@ function Home(props) {
               <ScreenHeaderBtn
                 iconUrl={icons.menu}
                 dimension="60%"
-                handlePress={() => console.log("left")}
+                handlePress={() => {}}
               />
             );
           },

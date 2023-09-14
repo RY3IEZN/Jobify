@@ -1,3 +1,5 @@
+/** @format */
+
 import { StyleSheet } from "react-native";
 
 import { COLORS, FONT, SHADOWS, SIZES } from "../../../../constants";

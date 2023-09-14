@@ -10,15 +10,20 @@ import { ActivityIndicator } from "react-native";
 import { COLORS, SIZES } from "../../../constants";
 import { FlatList } from "react-native";
 import PopularJobCard from "../../common/cards/popular/PopularJobCard";
+import useFetch from "../../../hook/useFetch";
 
 const Popularjobs = () => {
-  const [isLoading, setIsloading] = useState(false);
   const router = useRouter();
-  const error = false;
+
+  const { data, error, isLoading } = useFetch("search", {
+    query: "cloud developer",
+    num_pages: 1,
+  });
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Popularjobs</Text>
+        <Text style={styles.headerTitle}>Popular Jobs</Text>
         <TouchableOpacity>
           <Text style={styles.headerBtn}>Show All</Text>
         </TouchableOpacity>
@@ -31,11 +36,17 @@ const Popularjobs = () => {
         ) : (
           <FlatList
             horizontal
+            showsHorizontalScrollIndicator={false}
             keyExtractor={(item) => item?.job_id}
             contentContainerStyle={{ columnGap: SIZES.medium }}
-            data={[1, 2, 3, 4, 5, 6, 7, 8]}
+            data={data.data}
             renderItem={({ item }) => {
-              return <PopularJobCard item={item} />;
+              return (
+                <PopularJobCard
+                  item={item}
+                  handleCardPress={() => console.log(item)}
+                />
+              );
             }}
           />
         )}

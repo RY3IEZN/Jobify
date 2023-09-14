@@ -1,3 +1,5 @@
+/** @format */
+
 import { StyleSheet } from "react-native";
 
 import { COLORS, SHADOWS, SIZES } from "../../../../constants";
@@ -22,7 +24,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  logImage: {
+  logoImage: {
     width: "70%",
     height: "70%",
   },
